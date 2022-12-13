@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
-{
-}
 
 export const ImageGallery = ({ images }) => {
   return (

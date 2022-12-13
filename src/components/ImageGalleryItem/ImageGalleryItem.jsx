@@ -5,8 +5,8 @@ import { Item, Image } from './ImageGalleryItem.styled';
 
 export class ImageGalleryItem extends Component {
   static propTypes = {
-    webFormatUrl: PropTypes.string.isRequired,
-    largeImageUrl: PropTypes.string.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
   };
 
@@ -15,8 +15,8 @@ export class ImageGalleryItem extends Component {
   };
 
   // ==================================
-  showModal = largeImageUrl => {
-    this.setState({ imageUrl: largeImageUrl });
+  showModal = largeImageURL => {
+    this.setState({ imageUrl: largeImageURL });
   };
 
   // ==================================
@@ -26,14 +26,14 @@ export class ImageGalleryItem extends Component {
 
   // ==================================
   render() {
-    const { tags, webFormatUrl, largeImageUrl } = this.props;
+    const { tags, webformatURL, largeImageURL } = this.props;
 
     return (
       <Item>
         <Image
           alt={tags}
-          src={webFormatUrl}
-          onClick={() => this.showModal(largeImageUrl)}
+          src={webformatURL}
+          onClick={() => this.showModal(largeImageURL)}
         />
         {this.state.imageUrl && (
           <Modal
