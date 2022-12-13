@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'components/Modal';
-import { Item, Image } from './ImageGalleryItem.styled';
+import { GalleryItem, Image } from './ImageGalleryItem.styled';
 
 export class ImageGalleryItem extends Component {
   static propTypes = {
@@ -29,7 +29,7 @@ export class ImageGalleryItem extends Component {
     const { tags, webformatURL, largeImageURL } = this.props;
 
     return (
-      <Item>
+      <GalleryItem>
         <Image
           alt={tags}
           src={webformatURL}
@@ -41,7 +41,7 @@ export class ImageGalleryItem extends Component {
             onClose={this.closeModal}
           />
         )}
-      </Item>
+      </GalleryItem>
     );
   }
 }

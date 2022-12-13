@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Item = styled.li`
+export const GalleryItem = styled.li`
   position: relative;
   padding-top: 60%;
   box-shadow: ${p => p.theme.shadows.galleryItem};
@@ -14,4 +14,7 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  :hover {
+  transform: scale(1.03);
+  cursor: zoom-in;}
 `;

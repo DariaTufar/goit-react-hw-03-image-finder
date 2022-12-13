@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import { Box } from 'components/Box';
-import { ModalLargeImage } from './Modal.styled';
+import { ModalLargeImage, Backdrop } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -31,7 +31,7 @@ export class Modal extends Component {
 
   // ==================================
   handleClickBackdrop = e => {
-    if (e.target === e.currentTarget) {
+    if (e.target !== e.currentTarget) {
       this.props.onClose();
     }
   };
@@ -49,10 +49,11 @@ export class Modal extends Component {
         justifyContent="center"
         alignItems="center"
         backgroundColor="rgba(0, 0, 0, 0.8)"
-        zIndex="1100"
+        zIndex="1200"
         onClick={this.handleClickBackdrop}
-      >
-        <Box position="relative" width="50%" paddingTop="35%">
+        >
+            <Backdrop/>
+        <Box position="relative" width="50%">
           <ModalLargeImage src={this.props.largeImageURL} alt="" />
         </Box>
       </Box>,
