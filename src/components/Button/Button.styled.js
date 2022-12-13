@@ -7,6 +7,7 @@ export const StyledButton = styled.button`
   margin-right: auto;
   min-width: ${p => p.theme.sizes.buttonWidth};
   margin-top: ${p => p.theme.sizes.l};
+  margin-bottom: ${p => p.theme.sizes.l};
   padding-top: ${p => p.theme.sizes.s};
   padding-bottom: ${p => p.theme.sizes.s};
   padding-left: ${p => p.theme.space[4]}px;
