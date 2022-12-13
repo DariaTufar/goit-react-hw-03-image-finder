@@ -9,6 +9,7 @@ export const ImageGallery = ({ images }) => {
       display="grid"
       gridTemplateColumns="1fr 1fr 1fr 1fr"
       gridGap={5}
+      padding="30px"
     >
       {images.map(image => (
         <ImageGalleryItem

@@ -4,10 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Box } from '../Box';
 import { fetchImages } from '../FetchImages'
-import { Button, Searchbar } from 'components/Searchbar';
+import {   Searchbar } from 'components/Searchbar';
 import { ImageGallery } from '../ImageGallery'
 import { Loader } from 'components/Loader';
-
+import { LoadMoreButton } from 'components/Button';
 
 const status = {
   idle: 0,
@@ -25,7 +25,7 @@ export class App extends Component {
     status: status.idle,
   };
 
-  //================================
+  //========================================================
   async componentDidUpdate(_, prevState) {
     const { search, page } = this.state;
 
@@ -38,14 +38,15 @@ export class App extends Component {
           status: status.resolved,
           totalImages: response.totalHits,
         }));
-      } catch (error) {
+      }
+      catch (error) {
         toast(error.message);
         this.setState({ status: status.rejected });
         return;
       }
     }
   }
-  //================================
+  //=======================================================
 
   handleSearch = search => {
     this.setState(prevState => {
@@ -60,30 +61,34 @@ export class App extends Component {
       } else return;
     });
   };
-  // ====================================
+  // ====================================================
   handleClickLoadMore = page => {
     this.setState({ page });
   };
 
    
-  //=====================================
+  //======================================================
   render() {
     return (
       <Box>
         <Searchbar onSubmit={this.handleSearch}></Searchbar>
         <Box>
-          <ImageGallery images={this.state.images} />
+            <ImageGallery images={this.state.images} />
 
-          {this.state.status === status.pending && <Loader />}
+            {this.state.status === status.pending && (
+                <Loader />
+            )}
 
-          {this.state.status === status.resolved && this.state.totalImages && (
-            <Button onClick={this.handleClickLoadMore} page={this.state.page} />
-          )}
-          
-          
-            </Box>
-            <ToastContainer />
-            <GlobalStyle />
+            {this.state.status === status.resolved && this.state.totalImages && (
+                <LoadMoreButton
+                onClick={this.handleClickLoadMore}
+                page={this.state.page}
+                />
+            )}
+        </Box>
+        
+        <ToastContainer />
+        <GlobalStyle />
       </Box>
     );
   }

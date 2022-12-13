@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ModalImage = styled.img`
+export const ModalLargeImage = styled.img`
   position: absolute;
   top: 0;
   left: 0;

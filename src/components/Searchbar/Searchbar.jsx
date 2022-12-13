@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { Box } from 'components/Box';
 import { theme } from 'utils';
-import { Form, Button, Input } from './Searchbar.styled'
+import { Form, SearchButton, Input } from './Searchbar.styled'
 
 export class Searchbar extends Component {
   static propTypes = {
@@ -34,24 +34,24 @@ export class Searchbar extends Component {
         top={0}
         left={0}
         position=" sticky"
-        zIndex="searchBar"
+        zIndex="1100"
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minHeight="searchBar"
         paddingRight={5}
         paddingLeft={5}
         paddingTop={4}
         paddingBottom={4}
         color="textPrimary"
-        backgroundColor="bgSearchBar"
+        backgroundColor="bgAccent"
         boxShadow="primary"
-  
+        width="100%"
+        height="64px"
       >
         <Form onSubmit={this.handleSubmit}>
-          <Button type="submit">
+          <SearchButton type="submit">
             <BiSearch size={theme.sizes.iconSearch} />
-          </Button>
+          </SearchButton>
           <Input
             type="text"
             aria-label="search"

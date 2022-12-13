@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
 import { Box } from 'components/Box';
-import { ModalImage } from './Modal.styled';
+import { ModalLargeImage } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
   static propTypes = {
     onClose: PropTypes.func.isRequired,
-    largeImageUrl: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string.isRequired,
   };
 
   // ==================================
@@ -20,23 +20,23 @@ export class Modal extends Component {
   // ==================================
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
-    }
-    
- // ==================================
+  }
+
+  // ==================================
   handleKeyDown = e => {
     if (e.code === 'Escape') {
       this.props.onClose();
     }
   };
 
- // ==================================
+  // ==================================
   handleClickBackdrop = e => {
     if (e.target === e.currentTarget) {
       this.props.onClose();
     }
-    };
-    
- // ==================================
+  };
+
+  // ==================================
   render() {
     return createPortal(
       <Box
@@ -53,11 +53,10 @@ export class Modal extends Component {
         onClick={this.handleClickBackdrop}
       >
         <Box position="relative" width="50%" paddingTop="35%">
-          <ModalImage src={this.props.largeImageUrl} alt="" />
+          <ModalLargeImage src={this.props.largeImageURL} alt="" />
         </Box>
       </Box>,
       modalRoot
     );
   }
 }
- 

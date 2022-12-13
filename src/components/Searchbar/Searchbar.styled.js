@@ -3,17 +3,18 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: ${p => p.theme.sizes.form};
-  background-color: ${p => p.theme.colors.bgPrimary};
+  background-color: ${p => p.theme.colors.bgAccent};
   border-radius: ${p => p.theme.radii.sm};
   overflow: hidden;
 `;
 
-export const Button = styled.button`
+export const SearchButton = styled.button`
   display: inline-block;
-  width: ${p => p.theme.sizes.buttonIcon};
-  height: ${p => p.theme.sizes.buttonIcon};
+  width: ${p => p.theme.sizes.l};
+  height: ${p => p.theme.sizes.l};
   border: 0;
   background-repeat: no-repeat;
   background-position: center;
@@ -28,11 +29,13 @@ export const Button = styled.button`
 
 export const Input = styled.input`
   display: inline-block;
-  width: 100%;
-  padding-left: ${p => p.theme.space[2]}px;
-  padding-right: ${p => p.theme.space[2]}px;
+  width: ${p => p.theme.sizes.searchInput};
+  height: ${p => p.theme.sizes.l};
+  padding-right: ${p => p.theme.sizes.l};
   font: inherit;
   font-size: ${p => p.theme.fontSizes.m};
+  border-radius: ${p => p.theme.radii.sm};
   border: none;
   outline: none;
+  background-color: ${p => p.theme.colors.bgPrimary};
 `;
