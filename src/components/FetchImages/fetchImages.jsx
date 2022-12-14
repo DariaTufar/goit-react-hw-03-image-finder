@@ -19,7 +19,6 @@ export async function fetchImages(search, page) {
     if (response.data.hits.length === 0) {
       throw Error('There is no any match on your request!');
     }
-          console.log(response.data);
       return response.data;
 
   }
