@@ -51,11 +51,12 @@ export class Modal extends Component {
         backgroundColor="rgba(0, 0, 0, 0.8)"
         zIndex="1200"
         onClick={this.handleClickBackdrop}
-        >
-            <Backdrop/>
-        <Box position="relative" width="50%">
-          <ModalLargeImage src={this.props.largeImageURL} alt="" />
-        </Box>
+      >
+        <Backdrop>
+          <Box position="relative" width="50%" paddingTop="35%">
+            <ModalLargeImage src={this.props.largeImageURL} alt="" />
+          </Box>
+        </Backdrop>
       </Box>,
       modalRoot
     );

@@ -6,7 +6,7 @@ export const ModalLargeImage = styled.img`
   left: 20%;
   width: 60%;
   height: 60%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: 1100;
 `;
 
